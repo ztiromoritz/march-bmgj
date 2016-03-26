@@ -9,6 +9,8 @@ namespace BerlinJam
 		[SerializeField] private Parasit parasitPrefab = null;
 		[SerializeField] private SongSweep songSweep = null;
 
+		private float spawnTimer = 0.0f;
+
 		// Use this for initialization
 		void Start () {
 		
@@ -16,7 +18,9 @@ namespace BerlinJam
 		
 		// Update is called once per frame
 		void Update () {
-			if (Input.GetKey (KeyCode.Space)) {
+			this.spawnTimer += Time.deltaTime;
+			if (Input.GetKey (KeyCode.Space) || this.spawnTimer > 0.5f) {
+				this.spawnTimer = 0.0f;
 				DropParasit ();
 			}
 		}
@@ -24,7 +28,7 @@ namespace BerlinJam
 
 		private void DropParasit(){
 
-			Vector2 pos = new Vector2 (this.songSweep.transform.position.x /** + Random Faktor **/, 15 /** somewhere over the rainbow**/);
+			Vector2 pos = new Vector2 (this.songSweep.transform.position.x + 5 + Random.Range(0, 20)/** + Random Faktor **/, 12 - Random.Range(0, 15) /** somewhere over the rainbow**/);
 
 				//Vector2 velocity = new Vector2(0,-30); 
 
@@ -35,7 +39,7 @@ namespace BerlinJam
 			//parasit.transform.up = velocity.normalized;
 			//parasit.Source = this.gameObject;
 			//parasitBody.velocity = velocity;
-			parasitBody.velocity = new Vector2( 0.0f, -1.0f);;
+			parasitBody.velocity = new Vector2( 0.2f, -1.25f);
 		}
 
 	}

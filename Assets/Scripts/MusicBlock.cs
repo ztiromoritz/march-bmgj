@@ -21,6 +21,7 @@ namespace BerlinJam
 		public float FillState
 		{
 			get { return this.fillState; }
+			set { this.fillState = value; }
 		}
 
 		private void Awake()

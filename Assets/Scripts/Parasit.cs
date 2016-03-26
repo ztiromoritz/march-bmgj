@@ -24,6 +24,14 @@ namespace BerlinJam
 			if (collider.GetComponent<Bullet>() != null)
 				Destroy (this.gameObject);
 		}
+		private void OnCollisionStay2D(Collision2D other)
+		{
+			MusicBlock block = other.collider.GetComponent<MusicBlock>();
+			if (block != null)
+			{
+				block.FillState -= Time.deltaTime;
+			}
+		}
 	
 	
 	}
