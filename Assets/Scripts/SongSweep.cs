@@ -6,9 +6,12 @@ namespace BerlinJam
 {
 	public class SongSweep : MonoBehaviour
 	{
+		[SerializeField] private float speed = 0.0f;
+
 		private void Update()
 		{
-
+			Rigidbody2D body = this.GetComponent<Rigidbody2D>();
+			body.velocity = new Vector2(speed, 0.0f);
 		}
 	}
 }
