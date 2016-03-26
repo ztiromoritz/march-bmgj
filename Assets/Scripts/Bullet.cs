@@ -18,6 +18,7 @@ namespace BerlinJam
 		{
 			if (this.source == collider.gameObject) return;
 			if (collider.GetComponent<Bullet>() != null) return;
+			if (collider.GetComponent<SongSweep>() != null) return;
 
 			Destroy(this.gameObject);
 		}
