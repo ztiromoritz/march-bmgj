@@ -35,7 +35,7 @@ namespace BerlinJam
 
 		public void BumpAudioTrack(int trackIndex, float bump)
 		{
-			this.bumpBuffer[trackIndex] = 0.5f;
+			this.bumpBuffer[trackIndex] = 0.65f;
 			this.audioSources[trackIndex].volume = Mathf.Clamp01(this.audioSources[trackIndex].volume + bump);
 		}
 	}
