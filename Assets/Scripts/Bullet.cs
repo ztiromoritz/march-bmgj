@@ -17,6 +17,7 @@ namespace BerlinJam
 		private void OnTriggerEnter2D(Collider2D collider)
 		{
 			if (this.source == collider.gameObject) return;
+			if (collider.GetComponent<Bullet>() != null) return;
 
 			Destroy(this.gameObject);
 		}
