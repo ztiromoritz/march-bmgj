@@ -14,7 +14,7 @@ namespace BerlinJam
 			Rigidbody2D body = this.GetComponent<Rigidbody2D>();
 			body.velocity = new Vector2(speed, 0.0f);
 		}
-		private void OnTriggerEnter2D(Collider2D other)
+		private void OnTriggerStay2D(Collider2D other)
 		{
 			MusicBlock block = other.GetComponent<MusicBlock>();
 			if (block != null)
