@@ -66,6 +66,8 @@
 				fixed4 texColor = tex2D(_MainTex, IN.texcoord);
 				fixed4 noise = tex2D(_Noise, IN.texcoord);
 				fixed4 color = texColor * IN.color;
+
+				color.a *= (0.75 + 0.25 * _FillState);
 				color.a *= smoothstep(noise.r, noise.r + 0.1, _FillState);
 
 				color.rgb *= color.a;
