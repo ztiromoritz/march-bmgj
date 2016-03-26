@@ -12,6 +12,7 @@ namespace BerlinJam
 		[SerializeField] private float bulletDelay = 0.2f;
 		[SerializeField] private float bulletSpeed = 10.0f;
 
+
 		private float bulletTimer = 0.0f;
 
 		private void Update()
@@ -23,7 +24,7 @@ namespace BerlinJam
 			Vector2 screenPos = Camera.main.WorldToScreenPoint(transform.position);
 			Vector2 mousePos = Input.mousePosition;
 			Vector2 lookDir = mousePos - screenPos;
-			float targetAngle = lookDir.GetAngle();
+			float targetAngle = lookDir.GetAngle() + 90 * Mathf.Deg2Rad;
 			body.angularVelocity = 0.0f;
 			body.MoveRotation(Mathf.Rad2Deg * targetAngle);
 
@@ -61,7 +62,7 @@ namespace BerlinJam
 			Rigidbody2D body = this.GetComponent<Rigidbody2D>();
 
 			Vector2 pos = this.transform.position;
-			Vector2 dir = this.transform.up;
+			Vector2 dir = this.transform.right;
 			Vector2 velocity = dir * this.bulletSpeed + body.velocity;
 
 			Bullet bullet = GameObject.Instantiate<Bullet>(this.bulletPrefab);
